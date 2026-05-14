@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* My First UK Bank — Brand tokens */
+    --background: 210 40% 98%;
+    --foreground: 220 60% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 12%;
+
+    /* Navy */
+    --primary: 220 70% 18%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 70% 32%;
+
+    /* Teal */
+    --secondary: 178 65% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Gold accent */
+    --accent: 42 92% 56%;
+    --accent-foreground: 220 60% 12%;
+
+    --muted: 215 25% 94%;
+    --muted-foreground: 220 15% 40%;
+
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 76% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 88%;
+    --input: 215 25% 90%;
+    --ring: 178 65% 42%;
+
+    --radius: 1rem;
+
+    /* Brand surfaces */
+    --navy: 220 70% 18%;
+    --navy-deep: 222 75% 11%;
+    --teal: 178 65% 42%;
+    --teal-soft: 178 50% 92%;
+    --gold: 42 92% 56%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy-deep)) 0%, hsl(var(--navy)) 50%, hsl(var(--teal) / 0.85) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--primary-glow)) 60%, hsl(var(--teal)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 92% 60%) 0%, hsl(38 95% 52%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(210 40% 99%) 0%, hsl(178 50% 96%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 24px -6px hsl(var(--navy) / 0.12);
+    --shadow-elevated: 0 20px 50px -20px hsl(var(--navy) / 0.35);
+    --shadow-glow: 0 0 40px hsl(var(--teal) / 0.35);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 75% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 60% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 60% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 178 65% 48%;
+    --primary-foreground: 222 75% 7%;
+    --primary-glow: 178 70% 60%;
+    --secondary: 220 50% 25%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 42 92% 60%;
+    --accent-foreground: 222 75% 7%;
+    --muted: 220 40% 16%;
+    --muted-foreground: 215 20% 70%;
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 40% 20%;
+    --input: 220 40% 18%;
+    --ring: 178 65% 48%;
+    --navy: 220 70% 18%;
+    --navy-deep: 222 75% 7%;
+    --teal: 178 65% 48%;
+    --teal-soft: 220 40% 16%;
+    --gold: 42 92% 60%;
+    --gradient-hero: linear-gradient(135deg, hsl(222 80% 5%) 0%, hsl(220 70% 14%) 50%, hsl(178 60% 25%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 70% 18%) 0%, hsl(178 65% 35%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(222 75% 7%) 0%, hsl(220 50% 11%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(0 0% 0% / 0.45);
+    --shadow-elevated: 0 20px 50px -20px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px hsl(var(--teal) / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .bank-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-elevated);
+  }
+  .gold-chip {
+    background: var(--gradient-gold);
+    box-shadow: 0 2px 8px hsl(42 92% 50% / 0.4);
+  }
+  .glass {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+}
